@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LIST OF AGENTS</title>
+<style>
+
+          #customers {font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 70%;}
+        #customers td, #customers th { border: 1px solid #ddd;padding: 8px;}
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers tr:hover {background-color: #ddd;}
+        #customers th { padding-top: 12px;padding-bottom: 12px;text-align: left;background-color: #04AA6D;color: heveltika;}
+        body {
+        text-align: left;
+    }
+
+    h1 {
+        color: green;
+    }
+
+    table,
+    th,
+    td {
+
+        /* Styling the border. */
+        border: 1.5px solid blue;
+    }
+</style>
+</head>
+{% block content %}
+<body>
+<h1 ><center>LIST OF AGENTS</center></h1>
+<table class="content-table" id="customers">
+    <tr>
+      <td>AGENT ID</td>
+      <td>AGENT NAME</td>
+      <td>PHONE NO</td>
+      <td>STATE</td>
+      <td>DISTRICT</td>
+      <td>AREA</td>
+      <td>ADDRESS</td>
+
+          <td>GENDER</td>
+
+      <td>EMAIL</td>
+      <td>PASSWORD</td>
+      <td>STATUS</td>
+        <td>DELETE</td>
+       </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.aid}}</td>
+        <td>{{i.aname}}</td>
+        <td>{{i.phoneno}}</td>
+        <td>{{i.state}}</td>
+        <td>{{i.district}}</td>
+        <td>{{i.area}}</td>
+        <td>{{i.address}}</td>
+
+        <td>{{i.agender}}</td>
+
+        <td>{{i.email}}</td>
+        <td>{{i.password}}</td>
+        <td>{{i.status}}</td>
+        <td><a href="/deleteagents/{{ i.aid }}"><input type="button" value="DELETE"></a></td>
+
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+
+{% endblock content %}
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><BR><BR><BR><BR><BR><BR>
+<center><form method="post" enctype="multipart/form-data" >
+<h3>BARGAIN</h3><BR>
+    {% csrf_token %}
+    <table border="2">
+        <tr>
+            <td>REQUEST NO</td> <td>{{rqno}}</td>
+            </tr>
+        <tr>
+            <td>REQUEST DATE</td><td>{{rqdate}}</td>
+        </tr>
+        <tr>
+            <td>USER ID</td><td>{{bids}}</td>
+            </tr>
+
+        <tr>
+            <td>PACKAGE ID</td><td>{{pid}}</td>
+            </tr>
+
+
+        </tr>
+    </table>
+
+    <input type="submit" value="REQUEST"><BR><BR>
+</center>
+</form>
+</div>
+</body>
+</html>

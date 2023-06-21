@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Travel Together</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'agent/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'agent/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'agent/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <link href="{% static 'agent/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'agent/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Day - v4.9.1
+  * Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+<style>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+      }
+      #form-div {
+          background-color: rgb(207, 207, 207);
+          text-align: center;
+          width: 35%;
+          margin: 100px auto;
+          padding: 20px 0;
+          border-radius: 15px;
+          box-shadow: 0 15px 15px rgb(63, 63, 63);
+      }
+
+      #form-div h1{
+          font-size: 50px;
+      }
+
+      .user-input{
+       border-radius: 5px;
+        padding: 20px 5px;
+        margin-bottom: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        border-style: none;
+      }
+
+      .user-input-btn{
+       border-radius: 5px;
+        padding: 20px 5px;
+        margin-bottom: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        border-style: none;
+        background-color: rgb(45, 0, 66);
+        color: white;
+      }
+
+    </style>
+
+</style>
+<body>
+
+ <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/index">TravelTogether</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/agentregis">Agent Registration</a></li>
+          <li><a href ="/regis">Client Registration</a></li>
+          <li><a href="/login">Login</a></li>
+
+      </nav><!-- .navbar -->
+  </header>
+    </div>
+
+<div id="form-div">
+<form method="POST" class="post-form" enctype="multipart/form-data">
+<center><h3>USER REGISTRATION</h3><BR<center><form method="post" enctype="multipart/form-data" class="form-inline">
+ <BR>
+    {% csrf_token %}
+    <label for="uname">Client Name:</label>
+    <input type="text" name="uname" size="20" placeholder="Client Name"   pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?$" required title="Enter Name In Valid Format (firstname+ +lastname)"><br>
+    <label for="phone">Phone Number:</label>
+    <input type="text" name="phoneno" placeholder="Phoneno" pattern="^\d{10}$" required title="Enter A Valid Phone Number"><br>
+    <label for="state">State:</label>
+    <input type="text" name="state" size="20" placeholder="State" value="Kerala" required><br>
+    <label for="district">District:</label>
+   <select name="district" id="district" class="form-control">
+<option value="Alappuzha">Alappuzha</option>
+<option value="Eranakulam">Eranakulam</option>
+<option value="Iduki">Iduki</option>
+<option value="Kannur">Kannur</option>
+<option value="Kasaragod">Kasaragod</option>
+<option value="Kollam">Kollam</option>
+<option value="Kottayam">Kottayam</option>
+<option value="Kozhikode">Kozhikode</option>
+<option value="Malappuram">Malappuram</option>
+<option value="Palakkad">Palakkad</option>
+<option value="Pathanamthiita">Pathanamthiita</option>
+<option value="Thiruvananthapuram">Thiruvananthapuram</option>
+<option value="Thrissur">Thrissur</option>
+<option value="Wayanad">Wayanad</option>
+</select><br>
+
+    <label for="adresss">Adress:</label>
+    <input type="text" name="address" placeholder="address" required><br>
+    <label for="image">Your Photo:</label>
+    <input type="file" id="photo" name="photo" placeholder="your photo" upload_to="/images" required title="Please Upload Your Latest Photo"><br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="email" required><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="Show" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+        <br>
+    <label for="showpassword"> Show Password:</label>
+    <input type="checkbox" name="" onclick="myFunction()">
+    <BR><BR>
+    <script type="text/javascript">
+        function myFunction(){
+        var show = document.getElementById('Show');
+        if (show.type=='password') {
+            show.type='text';
+        }
+        else{
+             show.type='password';
+
+        }
+        }
+    </script>
+
+    <h6>For Any Quries Contact:<div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">animeshthomas262@gmail.com</a>
+      </div></h6>
+    <button type="submit" class="save btn btn-default">Save</button><BR>
+    <a href="/login/">ALREADY HAVE AN ACCOUNT?</a><br>
+    <a href="/">BACK TO HOME</a>
+</center>
+</form>
+
+</body>
+</html>

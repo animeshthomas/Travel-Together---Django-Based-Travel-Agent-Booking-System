@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Travel Together</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'agent/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'agent/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'agent/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <link href="{% static 'agent/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'agent/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Day - v4.9.1
+  * Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+<style>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+      }
+      #form-div {
+          background-color: rgb(207, 207, 207);
+          text-align: center;
+          width: 35%;
+          margin: 100px auto;
+          padding: 20px 0;
+          border-radius: 15px;
+          box-shadow: 0 15px 15px rgb(63, 63, 63);
+      }
+
+      #form-div h1{
+          font-size: 50px;
+      }
+
+      .user-input{
+       border-radius: 5px;
+        padding: 20px 5px;
+        margin-bottom: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        border-style: none;
+      }
+
+      .user-input-btn{
+       border-radius: 5px;
+        padding: 20px 5px;
+        margin-bottom: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        border-style: none;
+        background-color: rgb(45, 0, 66);
+        color: white;
+      }
+
+    </style>
+
+</style>
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/index">TravelTogether</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/index">Home</a></li>
+          <li><a class="nav-link scrollto" href="/postpackage">Post Packages</a></li>
+          <li><a href ="/response">View Requests Of Packages</a></li>
+          <li><a href="/editagent">Edit Profile</a></li>
+            <li><a href="">Logout</a></li>
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+<center><form method="post" enctype="multipart/form-data" class="form-inline">
+<h3>POST PACKAGES</h3><BR>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" value="POST"><BR><BR>
+    <a href="/login/">LOGIN</a>
+    <a href="/">BACK TO HOME</a>
+    </center>
+</form>
+</body>
+</html>

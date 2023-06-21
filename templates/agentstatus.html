@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Status</title>
+</head>
+{% block title %}  {% endblock title %}
+{% block content %}
+<style>
+        #customers {font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 70%;}
+        #customers td, #customers th { border: 1px solid #ddd;padding: 8px;}
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers tr:hover {background-color: #ddd;}
+        #customers th { padding-top: 12px;padding-bottom: 12px;text-align: left;background-color: #04AA6D;color: heveltika;}
+</style>
+<body>
+<br><BR>
+<H2><CENTER>PENDING AGENT APPROVALS</CENTER></H2>
+<table border="2" color="black" id="customers">
+
+    <tr>
+      <td>AGENT NAME</td>
+      <td>PHONE NO</td>
+      <td>AREA</td>
+      <td>ADDRESS</td>
+        <td>PHOTO</td>
+      <td>ADHAR ID</td>
+      <td>CERTIFICATE</td>
+
+    {% for i in a %}
+
+<tr>
+        <td>{{i.aname}}</td>
+        <td>{{i.phoneno}}</td>
+        <td>{{i.area}}</td>
+        <td>{{i.address}}</td>
+        <td> <img src="{{ i.photo.url }}" height="150" width="250"> </td>
+        <td> <img src="{{ i.verification.url }}" height="150" width="250"> </td>
+        <td> <img src="{{ i.certification.url }}" height="150" width="250"> </td>
+    <td><a href="/updatestatus/{{i.aid}}"> Approve </a></td>
+    <td><a href="/areject/{{i.aid}}">Reject</a></td>
+</tr>
+    {% endfor %}
+</table>
+<a href="/login/">BACK TO HOME</a>
+
+</body>
+{% endblock content %}
+</html>

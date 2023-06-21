@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user update</title>
+</head>
+
+{% block title %} Displaying model data {% endblock title %}
+{% block content %}
+<body>
+<BR><BR><BR><BR><BR><BR>
+
+<center><form method="post" enctype="multipart/form-data" class="form-inline" action="/updateagent/">
+ <h3>EDIT AGENT DETAILS</h3>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input class="user-input-btn" type="submit" value="UPDATE">
+    </center>
+</form>
+</body>
+{% endblock content %}
+</html>

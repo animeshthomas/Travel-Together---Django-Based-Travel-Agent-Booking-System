@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Packages</title>
+</head>
+{% block title %}{% endblock title %}
+{% block content %}
+<body>
+
+<h1>Search Packages</h1>
+<table border="2">
+    <tr><td>PACKAGE NAME</td><td>SPOT</td><td>PACKAGE TYPE</td>
+        </tr>
+    <tr>
+
+
+        <td><select name="pname">
+            <option selected disabled >-- select--</option>
+            {% for j in erec %}
+            <option>{{ j.name }}</option>
+            {% endfor %}
+        </select></td>
+
+
+        <td><select name="area">
+            <option selected disabled >-- select--</option>
+            {% for j in brec %}
+            <option>{{ j.area }}</option>
+            {% endfor %}
+
+        </select> </td>
+
+        <td><select name="ptype">
+            <option selected disabled >-- select--</option>
+            {% for j in crec %}
+            <option>{{ j.ptype }}</option>
+            {% endfor %}
+        </select></td>
+    </td>
+
+
+    </tr><tr><td> <input type="submit" value="SEARCH" name="find"></td></tr>
+
+
+</table>
+<table border="2">
+    {% for i in result %}
+    <tr>
+        <th>PACKAGE NAME</th>
+        <th>SPOT</th>
+        <th>PTYPE</th>
+        <th>DESCRIPTION</th>
+    </tr>
+     <tr> <td>{{i.name}}</td><td>{{i.area}}</td><td>{{i.ptype}}</td><td>{{i.description}}</td></tr><td><a href="/rqst/{{i.pid}}/{{i.price}}/{{i.oid}}">BARGAIN</a></td><td><a href="/buyn/{{i.pid}}/{{i.oid}}/{{i.price}}">PURCHASE</a></td><a href="/ser/">GO BACK</a>
+    {% endfor %}
+</table>
+    </center>
+    </form>
+</body>
+{% endblock content %}
+</html>
+</body>
+</html>

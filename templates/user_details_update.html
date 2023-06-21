@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load static %}
+{% block title %}User Details{% endblock %}
+{% block background %}{% endblock %}
+{% block body %}
+<center>
+    <h2>User Details</h2>
+	<div class="container">
+    <form role="form" name="frm" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+			<label for="aname">Name</label>
+	        <input class="form-control" type="text"  id="aname" name="aname" value="{{up.aname}}" required="required">
+			<label for="phoneno">Phone No</label>
+			<input class="form-control" type="text"  id="phoneno" name="phoneno" value="{{up.phoneno}}" required="required">
+		</div>
+	    <div class="form-group">
+			<label for="address">Address</label>
+	        <input class="form-control" type="text"  id="address" name="address" value="{{up.address}}" placeholder="address" >
+		</div>
+		<div class="form-group">
+			<label for="email">Email</label>
+	        <input type="email" class="form-control" id="email" name="email" value="{{up.email}}"></td>
+			<label for="photo">Photo</label>
+	        <input type="file" class="form-control" id="photo" name="photo" value="{{up.photo}}"></td>
+          <label for="email">Password</label>
+	        <input type="password" class="form-control" id="password" name="password" value="{{up.password}}"></td>
+		</div>
+		<button type="submit" class="btn btn-info" id="bt" name="bt">Update</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+	    </table>
+    </form>
+	{{msg}}
+	</div>
+</center>
+{% endblock %}
+</body>
+</html>

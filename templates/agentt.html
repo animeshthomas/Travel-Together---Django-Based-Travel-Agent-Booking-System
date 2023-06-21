@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Travel Together</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'agent/assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'agent/assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'agent/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link href="{% static 'agent/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'agent/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'agent/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Day - v4.9.1
+  * Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+</head>
+<style>
+
+      #form-div {
+          background-color: rgb(207, 207, 207);
+          text-align: center;
+          width: 35%;
+          margin: 100px auto;
+          padding: 20px 0;
+          border-radius: 15px;
+          box-shadow: 0 15px 15px rgb(63, 63, 63);
+      }
+
+      #form-div h1{
+          font-size: 50px;
+      }
+
+      .user-input{
+       border-radius: 5px;
+        padding: 20px 5px;
+        margin-bottom: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        border-style: none;
+      }
+
+      .user-input-btn{
+       border-radius: 5px;
+        padding: 20px 5px;
+        margin-bottom: 30px;
+        width: 50%;
+        box-sizing: border-box;
+        border-style: none;
+        background-color: rgb(45, 0, 66);
+        color: white;
+
+      }
+
+    form i {
+    margin-left: -30px;
+    cursor: pointer;
+}
+form {
+ width: 500px;
+ overflow:hidden;}
+
+label {
+ clear: both;
+ float: left;
+ width: 40%;}
+
+input {
+ float: left;
+ width: 55%;}
+    </style>
+
+</style>
+<body>
+
+ <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo"><a href="/index">TravelTogether</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" href="/agentregis">Agent Registration</a></li>
+          <li><a href ="/regis">Client Registration</a></li>
+          <li><a href="/login">Login</a></li>
+
+
+      </nav><!-- .navbar -->
+  </header>
+    </div>
+
+<div id="form-div">
+<form method="POST" class="post-form" enctype="multipart/form-data">
+<tr><div><h3>AGENT REGISTRATION</fontcolor></h3><BR<center><tr><form method="post" enctype="multipart/form-data" class="form-inline">
+ <BR>
+    <div>
+    {% csrf_token %}
+    <label for="aname" >Agent Name:</label>
+    <input type="text" name="aname" size="20" placeholder="Agent Name" required pattern="^[a-zA-Z]+(\s[a-zA-Z]+)?$" title="Enter Name In Valid Format (firstname+ +lastname)"><br>
+    <label for="phone">Phone Number:</label>
+    <input type="text" name="phoneno" placeholder="Phoneno"  pattern="^\d{10}$" required title="Enter A Valid Phone Number"><br>
+    <label for="state">State:</label>
+    <input type="text" name="state" size="20" placeholder="State" value="Kerala" required><br>
+    <label for="district">District:</label>
+   <select name="district" id="district" class="form-control">
+<option value="Alappuzha">Alappuzha</option>
+<option value="Eranakulam">Eranakulam</option>
+<option value="Iduki">Iduki</option>
+<option value="Kannur">Kannur</option>
+<option value="Kasaragod">Kasaragod</option>
+<option value="Kollam">Kollam</option>
+<option value="Kottayam">Kottayam</option>
+<option value="Kozhikode">Kozhikode</option>
+<option value="Malappuram">Malappuram</option>
+<option value="Palakkad">Palakkad</option>
+<option value="Pathanamthiita">Pathanamthiita</option>
+<option value="Thiruvananthapuram">Thiruvananthapuram</option>
+<option value="Thrissur">Thrissur</option>
+<option value="Wayanad">Wayanad</option>
+</select><br>
+    <label for="area">Area:</label>
+    <input type="text" name="area" placeholder="area" pattern="[A-Za-z]+" required title="Only Allowed One Area Names(You cannot use any numbers)"><br>
+    <label for="adresss">Adress:</label>
+    <input type="text" name="address" placeholder="address" required><br>
+    <label for="photo">Your Photo:</label>
+    <input type="file" id="photo" name="photo" placeholder="your photo" upload_to="/images" required title="Please Upload Your Latest Photo"><br>
+    <label for="agender">Gender:</label>
+     <select name="agender" id="agender" class="form-control">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+         </select><br>
+    <label for="verification">Id Proof:</label>
+    <input type="file" id="verification" name="verification" placeholder="Adhar/Voter ID/License" upload_to="/images" title="Please Upload Your Adhar/Voter ID/License For Verificaton Purposes "><br>
+    <label for="certification">Certification:</label>
+    <input type="file" id="certification" name="certification" placeholder="CTA (Certified Travel Associate) and CTC (Certified Travel Counsellor)" upload_to="/images" title="Please Upload Your CTA (Certified Travel Associate) and CTC (Certified Travel Counsellor) Certificate For Verificaton Purposes"><br>
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="email" required><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="Show" placeholder="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+    <br>
+    <label for="showpassword"> Show Password:</label>
+    <input type="checkbox" name="" onclick="myFunction()">
+    <BR><BR></div>
+    <script type="text/javascript">
+        function myFunction(){
+        var show = document.getElementById('Show');
+        if (show.type=='password') {
+            show.type='text';
+        }
+        else{
+             show.type='password';
+
+        }
+        }
+    </script>
+
+
+    <button type="submit" class="save btn btn-default">Save</button><BR>
+
+
+    <h6>Your Account Will Be Verified By Admin After The Successfull Registration<br> Please Login To Check Your Account Status After 10 minutes. <br>For Any Quries Contact:<div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope-fill"></i><a href="mailto:contact@example.com">animeshthomas262@gmail.com</a>
+      </div></h6>
+       <a href="/login/">ALREADY HAVE AN ACCOUNT?</a><br>
+    <a href="/">BACK TO HOME</a>
+</center>
+</div>
+</form>
+
+</body>
+</html>

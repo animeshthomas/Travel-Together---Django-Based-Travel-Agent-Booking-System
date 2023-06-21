@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user list</title>
+<style>
+        #customers {font-family: Arial, Helvetica, sans-serif;border-collapse: collapse;width: 70%;}
+        #customers td, #customers th { border: 1px solid #ddd;padding: 8px;}
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers tr:hover {background-color: #ddd;}
+        #customers th { padding-top: 12px;padding-bottom: 12px;text-align: left;background-color: #04AA6D;color: heveltika;}
+</style>
+
+</head>
+
+{% block content %}
+
+<h1><center>LIST OF USERS</center></h1>
+<table border="2" id="customers">
+    <tr>
+      <td>USER NAME</td>
+      <td>PHONE NO</td>
+      <td>STATE</td>
+      <td>DISTRICT</td>
+      <td>ADDRESS</td>
+      <td>PHOTO</td>
+      <td>EMAIL</td>
+      <td>PASSWORD</td>
+        <td>DELETE</td>
+
+    </tr>
+    {% for i in a %}
+    <tr>
+        <td>{{i.uname}}</td>
+        <td>{{i.phoneno}}</td>
+        <td>{{i.state}}</td>
+        <td>{{i.district}}</td>
+        <td>{{i.address}}</td>
+        <td> <img src="{{i.photo.url}}" height="150" width="250"> </td>
+        <td>{{i.email}}</td>
+        <td>{{i.password}}</td>
+        <td><a href="/deleteclients/{{ i.uid }}"><input type="button" value="DELETE"></a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+
+
+{% endblock content %}
+</html>
